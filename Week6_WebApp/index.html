@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en" ng-app="Dashboard">
+  <head>
+    <meta charset="UTF-8">
+
+    <title>Media Sharing</title>
+
+
+      <link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
+      <script type="text/javascript" src="JS/bootstrap.js"></script>
+      <script type="text/javascript" src="JS/bootstrap.bundle.min.js"></script>
+      <script type="text/javascript" src="JS/jquery-3.6.0.min.js"></script>
+      <script type="text/javascript" src="JS/app.js"></script>
+
+  </head>
+  
+  <body>
+
+    <div  class="container">
+
+        <!--Header-->
+        <div class="row align-items-start">
+            <div class="col-2"  ></div>
+
+            <div class="col-8" style="text-align: center;">
+              <h3> Travel Blog &#128743<br> Media Share Platform</h3>
+              <img src="C:\Users\LeahB\OneDrive\Pictures\globe.png" style="width:150px;height:150px;" />
+            </div>
+
+            <div class="col-2 text-end" >
+              <button id="logoutBtn" type="button" class="btn btn-danger">Logout</button>
+            </div>
+          </div>
+
+
+        <!--New Asset Box-->
+        <div class="row align-items-start">
+            <div class="col-2"  ></div>
+
+            <div class="col-8" style="text-align: left;border-bottom:1px solid #222222;">
+              <p>Add a Media File</p>
+
+              <form style ="font-size: 10pt;" id="newAssetForm">
+                
+                <div class="mb-3">
+                  <label for="fileName" class="form-label">File Name</label>
+                  <input type="text" class="form-control" id="fileName">
+                </div>
+
+                <div class="mb-3">
+                  <label for="userID" class="form-label">User Id</label>
+                  <input type="string" class="form-control" id="userID">
+                </div>
+
+                <div class="mb-3">
+                  <label for="userName" class="form-label">User Name</label>
+                  <input type="text" class="form-control" id="userName">
+                </div>
+
+                <div class="mb-3">
+                  <label for="UpFile" class="form-label">File to Upload</label>
+                  <input type="file" class="form-control" id="UpFile">
+                </div>
+
+                <button type="button" id="subNewForm" class="btn btn-primary">Submit</button> <br/><br/>
+                <p><a href="translator.html" id="Translator">Translator</a></p>
+                <p><a href="Q&A.html" id="qnamaker">Q&A Maker</a></p>
+              </form>
+      
+              </form>
+            </div>
+
+            <div class="col-2"  ></div>
+        </div>
+
+        <!-- view Asset Area-->
+        <div class="row align-items-start">
+            <div class="col-2"  ></div>
+
+            <div class="col-8" style="text-align: left;" >
+              <div style="padding:5px;">
+                <button  id = "retImages" type="button" class="btn btn-primary">View Media Files</button>
+
+
+              <div id="ImageList">
+
+                <h4>Please click the view Media Files button to view the media content.</h4>
+
+              </div>
+            </div>
+
+            <div class="col-2"  ></div>
+        </div>
+
+    </div>
+  
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Translator</title>
+    <title>Media Share</title>
+    <link rel="stylesheet" type="text/css" href="CSS/bootstrap.css">
+    <script type="text/javascript" src="JS/bootstrap.js"></script>
+    <script type="text/javascript" src="JS/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="JS/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="JS/translator.js"></script>
+<body>
+    <h1>Translator</h1>
+    <label for="textToTranslate">Enter text to translate:</label>
+    <input type="text" id="textToTranslate">
+    <label for="targetLanguage">Select target language:</label>
+    <select id="targetLanguage">
+        <option value="fr">French</option>
+        <option value="es">Spanish</option>
+        <option value="de">German</option>
+        <!-- Add more options as needed -->
+    </select>
+    <button onclick="translateText()">Translate</button>
+    <p id="translatedText"></p>
+
+    <script>
+        function translateText() {
+            const subscriptionKey = '977f6b4e77a24eca968b24f8d3ae09cc';
+            const endpoint = 'https://api.cognitive.microsofttranslator.com/';
+
+            const textToTranslate = document.getElementById('textToTranslate').value;
+            const targetLanguage = document.getElementById('targetLanguage').value;
+
+            const apiUrl = `${endpoint}/translate?api-version=3.0&to=${targetLanguage}`;
+
+            const body = [{ 'text': textToTranslate }];
+
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Ocp-Apim-Subscription-Key': subscriptionKey,
+                    'Content-Type': 'application/json',
+                    'Ocp-Apim-Subscription-Region': 'westus'
+                },
+                body: JSON.stringify(body)
+            })
+            .then(response => response.json())
+            .then(translation => {
+                const translatedText = translation[0].translations[0].text;
+                document.getElementById('translatedText').innerText = `Translated text: ${translatedText}`;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('translatedText').innerText = 'Translation failed.';
+            });
+        }
+    </script>
+</body>
+</html>
+

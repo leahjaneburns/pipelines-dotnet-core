@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en" ng-app="Dashboard">
+  <head>
+    <meta charset="UTF-8">
+
+    <title>New User</title>
+
+      <link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
+      <script type="text/javascript" src="JS/bootstrap.js"></script>
+      <script type="text/javascript" src="JS/bootstrap.bundle.min.js"></script>
+      <script type="text/javascript" src="JS/jquery-3.6.0.min.js"></script>
+      <script type="text/javascript" src="JS/newuser.js"></script>
+
+  </head>
+  
+  <body>
+
+    <div  class="container">
+
+        <!--Header-->
+        <div class="row align-items-start">
+            <div class="col-2"  ></div>
+
+            <div class="col-8" style="text-align: center;">
+              <h3>New User</h3>
+              <img src="C:\Users\LeahB\OneDrive\Pictures\user.jpg" style="width:50px;height:50px;" />
+            </div>
+            <div class="col-2 text-end" >
+
+          </div>
+
+            <div class="col-2"  ></div>
+        </div>
+
+        <!--New Asset Box-->
+        <div class="row align-items-start">
+            <div class="col-2"  ></div>
+
+            <div class="col-8" style="text-align: left;border-bottom:1px solid #222222;">
+              <p>Add a New User</p>
+
+              <form style="font-size: 10pt;" id="newAssetForm">
+                <div class="mb-3">
+                  <label for="FirstName" class="form-label">FirstName</label>
+                  <input type="text" class="form-control" id="FirstName">
+                </div>
+
+                <div class="mb-3">
+                  <label for="LastName" class="form-label">LastName</label>
+                  <input type="text" class="form-control" id="LastName">
+                </div>
+
+                <div class="mb-3">
+                  <label for="Email" class="form-label">EmailAddress</label>
+                  <input type="text" class="form-control" id="Email">
+                </div>
+
+                <div class="mb-3">
+                  <label for="UserName" class="form-label">UserName</label>
+                  <input type="text" class="form-control" id="UserName">
+                </div>
+
+                <div class="mb-3">
+                  <label for="Password" class="form-label">Password</label>
+                  <input type="text" class="form-control" id="Password">
+                </div>
+
+                <div class="mb-3">
+                  <label for="ComfirmPassword" class="form-label">ConfirmPassword</label>
+                  <input type="text" class="form-control" id="ConfirmPassword">
+                </div>
+
+           
+                <button type="button" id="subNewForm" class="btn btn-primary">Register</button> 
+                <button id="loginBtn" type="button" class="btn btn-primary">Login</button> <br/><br/>
+              </div>
+                
+              </form>
+            </div>
+
+            <div class="col-2"  ></div>
+        </div>
+
+        <!-- view Asset Area-->
+        <div class="row align-items-start">
+            <div class="col-2"  ></div>
+
+            <div class="col-8" style="text-align: left;" >
+              <div style="padding:5px;">
+                <button  id = "retUsers" type="button" class="btn btn-primary">View New Users</button>
+              </div>
+
+              <div id="newUsers">
+
+                <h4>Click to view the new users.</h4>
+
+              </div>
+            </div>
+
+            <div class="col-2"  ></div>
+        </div>
+
+    </div>
+  
+  </body>
+</html>

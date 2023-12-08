@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Q&A Maker Integration</title>
+    <link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
+    <script type="text/javascript" src="JS/bootstrap.js"></script>
+    <script type="text/javascript" src="JS/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="JS/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="JS/QandA.js"></script>
+
+
+</head>
+<body>
+    <h1>Q&A Maker Integration</h1>
+    <form id="qnamaker">
+    <label for="question">Ask a question:</label>
+    <input type="text" id="question">
+    <button onclick="Q">Ask</button>
+</form>
+    <div id="answer"></div>
+
+    <script>
+        const subscriptionKey = '4c1c3249464b4cd58ed8b9b5481829ec';
+        const endpoint = 'https://b00775627-mediasharing-qanda.cognitiveservices.azure.com/';
+
+        function queryQnAMaker(question) {
+            const url = `${endpoint}/knowledgebases/generateAnswer`;
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `EndpointKey ${subscriptionKey}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ question: question })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const answerDiv = document.getElementById('answer');
+                if (data.answers && data.answers.length > 0) {
+                    answerDiv.innerHTML = `<p>Answer: ${data.answers[0].answer}</p>`;
+                } else {
+                    answerDiv.innerHTML = '<p>No answer found.</p>';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('answer').innerHTML = '<p>Error fetching answer.</p>';
+            });
+        }
+
+        function askQuestion() {
+            const question = document.getElementById('question').value;
+            if (question.trim() !== '') {
+                queryQnAMaker(question);
+            } else {
+                alert('Please enter a question.');
+            }
+        }
+        <div class="col-2"  ></div>
+    </script>
+
+ 
+
+ 
+</html>
